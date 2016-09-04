@@ -1,0 +1,49 @@
+{% load static %}
+<!doctype html>
+<html lang="es" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700|Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="{% static 'css/home/reset.css' %}"> <!-- CSS reset -->
+    <link rel="stylesheet" href="{% static 'css/home/style.css' %}"> <!-- Resource style -->
+
+    <link rel="stylesheet" href="{% static 'css/form/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/form/style.css' %}">
+    {% block css %}
+    {% endblock css %}
+    <title>
+        {% block title %}
+        {% endblock title %}
+    </title>
+</head>
+<body>
+<a href="#cd-nav" class="cd-nav-trigger">
+    Menu<span><!-- used to create the menu icon --></span>
+</a> <!-- .cd-nav-trigger -->
+
+<main>
+    <section class="cd-section {% block color %} index {% endblock color %}cd-selected">
+        <header>
+            {% block principal %}
+            {% endblock principal %}
+        </header>
+
+        {% block content %}
+        {% endblock content %}
+    </section> <!-- .cd-section -->
+</main>
+
+{% include 'menu.html' %}
+<div class="cd-overlay"><!-- shadow layer visible when navigation is visible --></div>
+<script src="{% static 'js/modernizr.js' %}"></script> <!-- Modernizr -->
+<script src="{% static 'js/jquery-2.1.1.js' %}"></script>
+<script src="{% static 'js/home/main.js' %}"></script> <!-- Resource jQuery -->
+<script src="{% static 'js/form/main.js' %}"></script> <!-- Resource jQuery -->
+{% block js %}
+{% endblock js %}
+
+</body>
+</html>

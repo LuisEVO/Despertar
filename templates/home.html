@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block principal %}
+    <div class="cd-title">
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}> <h2>{{ message }}</h2></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <h2>Bienvenido {% if request.user.is_active %}{{ user }}{% else %}...{% endif %} </h2>
+        {% endif %}
+    </div> <!-- .cd-title -->
+{% endblock principal %}
+{% comment %}
+{% block content %}
+    <div class="cd-content">
+        <p>
+        </p>
+    </div>
+{% endblock content %}
+{% endcomment %}
